@@ -80,40 +80,6 @@
       <span class="btn message">さっそく開発する</span>
     </div>
   </div>
-  <div class="insta_list">
-      <?php
-          $insta_media_limit = '6';
-          $insta_business_id = '17841404509689684';
-          $insta_access_token = 'EAAM8UizJQHMBAFSuWLZC2plUQF9LVqv9fHmZCwzsaZBp6r3LhINkHC2s2ZC0cZCVBQ0k7ZBUtXiMnpqba9tcM8w3uOzGMxX4avLH52jChAbh4iUA1rDRLZAOz6y9BGJWZCLy32ja8RHAbNcp7A5yD8kXD4QZByVufHhavxZABoRjoqjuykKJOZALE1c';
-
-          $json = file_get_contents("https://graph.facebook.com/v12.0/{$insta_business_id}?fields=name%2Cmedia.limit({$insta_media_limit})%7Bcaption%2Cmedia_url%2Cthumbnail_url%2Cpermalink%7D&access_token={$insta_access_token}");
-
-          $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-          $obj = json_decode($json, true);
-
-          $insta = [];
-
-          foreach ($obj['media']['data'] as $k => $v) {
-              if ($v['thumbnail_url']) {
-                  $data = [
-                      'img' => $v['thumbnail_url'],
-                      'caption' => $v['caption'],
-                      'link' => $v['permalink'],
-                  ];
-              } else {
-                  $data = [
-                      'img' => $v['media_url'],
-                      'caption' => $v['caption'],
-                      'link' => $v['permalink'],
-                  ];
-              }
-              $insta[] = $data;
-          }
-          foreach ($insta as $k => $v){
-              echo '<a href="'.$v['link'].'"><img src="'.$v['img'].'"></a>';
-          }
-      ?>
-  </div>
   <footer>
     <div class="container">
       <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
