@@ -87,3 +87,38 @@ footer {
 footer small {
   font-size: 12px;
 }
+
+#index h1 {
+  font-size: 100px;
+  line-height: 1;
+  color: #ffffff;
+  font-family: 'Bitter', serif;
+}
+
+#index .content {
+  margin-top: 150px;
+}
+
+@media screen and (max-width:600px) {
+  body {
+    font-size: 3.5vw;
+  }
+
+  h1 {
+    font-size: 7.2vw;
+  }
+
+  h2 {
+    font-size: 6vw;
+  }
+
+  header {
+    width: auto;
+    margin: 0 5%;
+  }
+
+  .site-head {
+  display: none;
+  }
+
+}
